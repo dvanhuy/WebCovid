@@ -1,2 +1,0 @@
-maytinh.html
-

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19</title>
+    <link rel="stylesheet" href="covid.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./covid.js"></script>
+    <script type="text/javascript" src="./mapdata.js"></script>		
+    <script  type="text/javascript" src="./countrymap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="upbar-trans">
+            <div class="upbar-trans-title">Số ca lây nhiễm<br> COVID-19</div>
+            <div class="upbar-trans-list">
+                <marquee >
+                    <div id="cases-on-world">
+                        <img src="./img/cvct-world.png">
+                        <span class="upbar-nation">World</span>
+                        <span class="upbar-cases">206,240,799</span>
+                    </div>
+                    <div>
+                        <img src="./img/us.png">
+                        <span class="upbar-nation">USA</span>
+                        <span class="upbar-cases">37,203,649</span>
+                    </div>
+                    <div>
+                        <img src="./img/uk.png">
+                        <span class="upbar-nation">UK</span>
+                        <span class="upbar-cases">6,179,506</span>
+                    </div>
+                    <div>
+                        <img src="./img/spain.png">
+                        <span class="upbar-nation">Spain</span>
+                        <span class="upbar-cases">4,677,883</span>
+                    </div>
+                    <div>
+                        <img src="./img/russia.png">
+                        <span class="upbar-nation">Russia</span>
+                        <span class="upbar-cases">6,534,791</span>
+                    </div>
+                    <div>
+                        <img src="./img/poland.png">
+                        <span class="upbar-nation">Poland</span>
+                        <span class="upbar-cases">2,884,780</span>
+                    </div>
+                    <div>
+                        <img src="./img/Italy.png">
+                        <span class="upbar-nation">Italy</span>
+                        <span class="upbar-cases">4,420,429</span>
+                    </div>
+                    <div>
+                        <img src="./img/iran.png">
+                        <span class="upbar-nation">Iran</span>
+                        <span class="upbar-cases">4,320,266</span>
+                    </div>
+                    <div>
+                        <img src="./img/india.png">
+                        <span class="upbar-nation">India</span>
+                        <span class="upbar-cases">32,117,052</span>
+                    </div>
+                    <div>
+                        <img src="./img/germany.png">
+                        <span class="upbar-nation">Germany</span>
+                        <span class="upbar-cases">3,814,316</span>
+                    </div>
+                    <div>
+                        <img src="./img/france.png">
+                        <span class="upbar-nation">France</span>
+                        <span class="upbar-cases">6,398,983</span>
+                    </div>
+                    <div>
+                        <img src="./img/china.png">
+                        <span class="upbar-nation">China</span>
+                        <span class="upbar-cases">94,260</span>
+                    </div>
+                    <div id="cases-on-world">
+                        <img src="./img/cvct-world.png">
+                        <span class="upbar-nation">World</span>
+                        <span class="upbar-cases">206,240,799</span>
+                    </div>
+                    <div>
+                        <img src="./img/us.png">
+                        <span class="upbar-nation">USA</span>
+                        <span class="upbar-cases">37,203,649</span>
+                    </div>
+                    <div>
+                        <img src="./img/uk.png">
+                        <span class="upbar-nation">UK</span>
+                        <span class="upbar-cases">6,179,506</span>
+                    </div>
+                    <div>
+                        <img src="./img/spain.png">
+                        <span class="upbar-nation">Spain</span>
+                        <span class="upbar-cases">4,677,883</span>
+                    </div>
+                    <div>
+                        <img src="./img/russia.png">
+                        <span class="upbar-nation">Russia</span>
+                        <span class="upbar-cases">6,534,791</span>
+                    </div>
+                    <div>
+                        <img src="./img/poland.png">
+                        <span class="upbar-nation">Poland</span>
+                        <span class="upbar-cases">2,884,780</span>
+                    </div>
+                    <div>
+                        <img src="./img/Italy.png">
+                        <span class="upbar-nation">Italy</span>
+                        <span class="upbar-cases">4,420,429</span>
+                    </div>
+                    <div>
+                        <img src="./img/iran.png">
+                        <span class="upbar-nation">Iran</span>
+                        <span class="upbar-cases">4,320,266</span>
+                    </div>
+                    <div>
+                        <img src="./img/india.png">
+                        <span class="upbar-nation">India</span>
+                        <span class="upbar-cases">32,117,052</span>
+                    </div>
+                    <div>
+                        <img src="./img/germany.png">
+                        <span class="upbar-nation">Germany</span>
+                        <span class="upbar-cases">3,814,316</span>
+                    </div>
+                    <div>
+                        <img src="./img/france.png">
+                        <span class="upbar-nation">France</span>
+                        <span class="upbar-cases">6,398,983</span>
+                    </div>
+                    <div>
+                        <img src="./img/china.png">
+                        <span class="upbar-nation">China</span>
+                        <span class="upbar-cases">94,260</span>
+                    </div>
+                </marquee>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-logo"><img src="img/logocovid.png" alt=""></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-a" style="text-decoration: none; color: black;">TRANG CHỦ</a></li>
+                    <li><a href="#thongtin" class="nav-a" style="text-decoration: none; color: black;">THÔNG TIN</a></li>
+                    <li><a href="#solieu" class="nav-a" style="text-decoration: none; color: black;">SỐ LIỆU</a></li>
+                    <li><a href="#khuyencao" class="nav-a" style="text-decoration: none; color: black;"> KHUYẾN CÁO</a></li>
+                    <li><a href="#hotro" class="nav-a" style="text-decoration: none; color: black;">HỖ TRỢ</a></li>
+                </ul>
+            </nav>
+            <div class="search">
+                <input class="searcher" type="search" placeholder="Tìm kiếm...">
+                <img src="./img/corona-virus.png">
+            </div>
+            <div class="header-icon-i4">
+                <ul>
+                    <li><i class="fa fa-twitter" aria-hidden="true"></i>
+                    </li>
+                    <li><i class="fa fa-facebook" id="icon-face" aria-hidden="true"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner">
+            <img id="banner-1" src="./img/banner1.jpg"> 
+            <img id="banner-2" src="./img/banner2.jpg">
+            <img id="banner-3" src="./img/banner3.jpg"> 
+            <img id="banner-4" src="./img/banner4.jpg">
+        </div>
+    </header>
+    <main>
+        <div class="section-1" id="thongtin">
+            <div class="s1-content" >
+                <div class="head-s1">
+                    <div class="s1-title">THÔNG TIN</div>
+                    <div class="see-more"><a href="" target="blank">Xem tất cả</a></div>
+                </div>
+                <div class="s1-dash"></div>
+                <div class="s1-container" >
+                    <div class="item">
+                        <div class="item-img"><img src="./img/item1.jpg"></div>
+                        <div class="item-content">
+                            <div class="item-ct-title">
+                                Chính phủ quyết nhiều giải pháp đặc biệt, cơ chế, chính sách đặc thù để dồn lực chống dịch hiệu quả
+                            </div>
+                            <div style="font-size: small; padding: 5px 0px 5px 0px; font-style: italic;">
+                                <span id="day1"></span>
+                                <script>
+                                var d = new Date();
+                                document.getElementById("day1").innerHTML =d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+', '+d.getHours()+':'+d.getMinutes();
+                                </script>
+                            </div>
+                            
+                            <div class="item-ct-summary">Thủ tướng Phạm Minh Chính vừa ký ban hành Nghị quyết 86 của Chính phủ về việc thực hiện các giải pháp cấp bách phòng, chống dịch bệnh
+                                   . . .</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img"><img src="./img/item2.jpg"></div>
+                        <div class="item-content">
+                            <div class="item-ct-title">
+                                Bộ Y tế ban hành công điện khẩn chỉ đạo các biện pháp cấp bách để chống dịch hiệu quả
+                            </div>
+                            <div style="font-size: small; padding: 5px 0px 5px 0px; font-style: italic;">
+                                <span id="day2"></span>
+                                <script>
+                                var d = new Date();
+                                document.getElementById("day2").innerHTML =d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+', '+d.getHours()+':'+d.getMinutes();
+                                </script>
+                            </div>
+                            <div class="item-ct-summary">Bộ Y tế vừa ban hành công điện số 1168/CĐ-BYT đề nghị Chủ tịch UBND các tỉnh, thành phố trực thuộc Trung ương tăng cường thực hiện các biện pháp
+                                   . . .</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img"><img src="./img/item3.jpg"></div>
+                        <div class="item-content">
+                            <div class="item-ct-title">Cho phép thử nghiệm lâm sàng Nano Covax giai đoạn 3 liều 25mcg
+                            </div>
+                            <div style="font-size: small; padding: 5px 0px 5px 0px; font-style: italic;">
+                                <span id="day3"></span>
+                                <script>
+                                var d = new Date();
+                                document.getElementById("day3").innerHTML =d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+', '+d.getHours()+':'+d.getMinutes();
+                                </script>
+                            </div>
+                            <div class="item-ct-summary">Trên cơ sở cập nhật kết quả đánh giá giữa kỳ giai đoạn 2 đến thời điểm hiện tại, Hội đồng Đạo đức Quốc gia quyết định tiếp tục cho phép triển khai thử nghiệm lâm sàng
+                                   . . .</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img"><img src="./img/item4.jpg"></div>
+                        <div class="item-content">
+                            <div class="item-ct-title">Dồn toàn lực, kiểm soát hoàn toàn dịch bệnh trước khi kết thúc Chỉ thị 16
+                            </div>
+                            <div style="font-size: small; padding: 5px 0px 5px 0px; font-style: italic;">
+                                <span id="day4"></span>
+                                <script>
+                                var d = new Date();
+                                document.getElementById("day4").innerHTML =d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear()+', '+d.getHours()+':'+d.getMinutes();
+                                </script>
+                            </div>
+                            <div class="item-ct-summary">Kiểm tra công tác phòng, chống dịch tại các tỉnh Kiên Giang, An Giang, Hậu Giang, ngày 8/8, Phó Thủ tướng Vũ Đức Đam, Trưởng Ban Chỉ đạo quốc gia phòng, chống dịch COVID-19.
+                                   . . .</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-list">
+                    <ul>
+                        <a href="https://www.facebook.com/" target="blank"><li>Chương trình phát triển vacxin</li></a>
+                        <a href="https://www.facebook.com/" target="blank"><li>Các biến thể virus</li></a>
+                        <a href="https://www.facebook.com/" target="blank"><li>Các loại vacxin</li></a>
+                       <a href="https://www.facebook.com/" target="blank"> <li>Công nghệ thông tin y tế</li></a>
+                        <a href="https://www.facebook.com/" target="blank"><li>Chương trình gây quỹ phòng chống COVID-19</li></a>
+                        <a href="https://www.facebook.com/" target="blank"><li>Danh sách địa điểm cách ly, phong tỏa trên toàn quốc</li></a>
+                        <a href="https://www.facebook.com/" target="blank"><li id="list-end">Các công tác phòng chống dịch bệnh</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section-2" id="solieu">
+            <div class="s2-title">SỐ LIỆU </div>
+            <div class="s2-dash"></div>
+            <div class="s2-container">
+                <div class="s2-item" >
+                    <div class="s2-item-top">
+                        <div><img src="img/viettttttnam.png">&ensp;Việt Nam</div>
+                        <div class="s2-item-dash"></div>
+                    </div>
+                    <div class="s2-item-cases">
+                        <div class="stats" id="case">
+                            <img src="./img/emoji1.png" >
+                            <span>246.568</span><br>
+                            <p>Tổng số ca</p> 
+                        </div>
+                        <div class="stats" id="deaths">
+                            <img src="./img/emoji2.png" >
+                            <span>4.813</span><br>
+                            <p>Số ca tử vong</p> 
+                        </div>
+                        <div class="stats" id="recovered">
+                            <img src="./img/emoji3.png" >
+                            <span>89.145</span><br>
+                            <p>Số ca hồi phục</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <div id="map"></div>
+                </div>
+                <div class="s2-item">
+                    <div class="s2-item-top">
+                        <div><img style="height: 20px; width: 25px;" src="./img/cvct-world.png" alt="world">&ensp;Thế giới</div>
+                        <div class="s2-item-dash"></div>
+                    </div>
+                    <div class="s2-item-cases">
+                        <div class="stats" id="case">
+                            <img src="./img/emoji1.png" >
+                            <span>206.234.061</span><br>
+                            <p>Tổng số ca</p> 
+                        </div>
+                        <div class="stats" id="deaths">
+                            <img src="./img/emoji2.png" >
+                            <span>4.347.996</span><br>
+                            <p>Số ca tử vong</p> 
+                        </div>
+                        <div class="stats" id="recovered">
+                            <img src="./img/emoji3.png" >
+                            <span>185.078.157</span><br>
+                            <p>Số ca hồi phục</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="auto-date">(
+                <span>Cập nhật đến ngày </span>
+                <span id="date"></span>
+                <script>
+                var d = new Date();
+                document.getElementById("date").innerHTML =+d.getDate()+' tháng '+(d.getMonth()+1)+' năm '+d.getFullYear();
+                </script>). Nguồn: Bộ Y Tế.
+            </div>
+            <div class="s2-table-stats">
+                <div class="table-header">
+                    <table>
+                        <tr>
+                            <td>Tỉnh/TP</td>
+                            <td>Tổng số ca nhiễm</td>
+                            <td>Số ca hồi phục</td>
+                            <td>Số ca tử vong</td>	
+                        </tr>
+                        <tr>   
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-content">  
+                    <table>
+                        <tr>	
+                            <td>TP Hồ Chí Minh</td>
+                            <td class="table-stats">136,756</td>
+                            <td class="table-recovered">692</td>
+                            <td class="table-death">3,807</td>
+                        </tr>
+                        <tr>	
+                            <td>Đà Nẵng</td>
+                            <td class="table-stats">2,312</td>
+                            <td class="table-recovered">617</td>
+                            <td class="table-death">45</td>
+                        </tr>
+                        <tr>	
+                        <td>Điện Biên</td>
+                        <td class="table-stats">56</td>
+                        <td class="table-recovered">52</td>
+                        <td class="table-death">0</td>
+                        </tr>
+                           
+                        <tr>	
+                        <td>Lai Châu</td>
+                        <td class="table-stats">2<br></td>
+                        <td class="table-recovered">1<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Lào Cai</td>
+                        <td class="table-stats">59<br></td>
+                        <td class="table-recovered">2<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Hà Giang</td>
+                        <td class="table-stats">24<br></td>
+                        <td class="table-recovered">3<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Sơn La</td>
+                        <td class="table-stats">68<br></td>
+                        <td class="table-recovered">0<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Yên Bái</td>
+                        <td class="table-stats">7<br></td>
+                        <td class="table-recovered">5<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Tuyên Quang</td>
+                        <td class="table-stats">2<br></td>
+                        <td class="table-recovered">1<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Phú Thọ</td>
+                        <td class="table-stats">18<br></td>
+                        <td class="table-recovered">5<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Thái Nguyên</td>
+                        <td class="table-stats">19<br></td>
+                        <td class="table-recovered">8<br></td>
+                        <td class="table-death">0<br></td>
+                        </tr>
+                        
+                        <tr>	
+                        <td>Lạng Sơn</td>
+                        <td class="table-stats">140<br></td>
+                        <td class="table-recovered">20<br></td>
+                        <td class="table-death">1<br></td>
+                        </tr>
+                        <tr>	
+                            <td>Vĩnh Phúc</td>
+                            <td class="table-stats">254</td>
+                            <td class="table-recovered">50</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        
+                        <tr>	
+                            <td>Bắc Giang</td>
+                            <td class="table-stats">5,823</td>
+                            <td class="table-recovered">3,592</td>
+                            <td class="table-death">12</td>
+                        </tr>
+                        <tr>	
+                            <td>Quảng Ninh</td>
+                            <td class="table-stats">104</td>
+                            <td class="table-recovered">87</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        
+                        <tr>	
+                            <td>Hải Phòng</td>
+                            <td class="table-stats">38</td>
+                            <td class="table-recovered">12</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Hải Dương</td>
+                            <td class="table-stats">916</td>
+                            <td class="table-recovered">804</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        
+                        <tr>	
+                            <td>Bắc Ninh</td>
+                            <td class="table-stats">1,759</td>
+                            <td class="table-recovered">1,042</td>
+                            <td class="table-death">15</td>
+                        </tr>
+                        <tr>	
+                            <td>Hà Nội</td>
+                            <td class="table-stats">2,565</td>
+                            <td class="table-recovered">518</td>
+                            <td class="table-death">30</td>
+                        </tr>
+                        <tr>	
+                            <td>Hưng Yên</td>
+                            <td class="table-stats">303</td>
+                            <td class="table-recovered">68</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Thái Bình</td>
+                            <td class="table-stats">111</td>
+                            <td class="table-recovered">56</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Hà Nam</td>
+                            <td class="table-stats">74</td>
+                            <td class="table-recovered">50</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Nam Định</td>
+                            <td class="table-stats">37</td>
+                            <td class="table-recovered">18</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Hòa Bình</td>
+                            <td class="table-stats">45</td>
+                            <td class="table-recovered">33</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Ninh Bình</td>
+                            <td class="table-stats">102</td>
+                            <td class="table-recovered">37</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Thanh Hóa</td>
+                            <td class="table-stats">167</td>
+                            <td class="table-recovered">26</td>
+                            <td class="table-death">10</td>
+                        </tr>
+                        <tr>	
+                            <td>Nghệ An</td>
+                            <td class="table-stats">447</td>
+                            <td class="table-recovered">5</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        <tr>	
+                            <td>Hà Tĩnh</td>
+                            <td class="table-stats">274</td>
+                            <td class="table-recovered">20</td>
+                            <td class="table-death">2</td>
+                        </tr>
+                        <tr>	
+                            <td>Quảng Bình</td>
+                            <td class="table-stats">74</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Quảng Trị</td>
+                            <td class="table-stats">37</td>
+                            <td class="table-recovered">12</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        <tr>	
+                            <td>Thừa Thiên - Huế</td>
+                            <td class="table-stats">181</td>
+                            <td class="table-recovered">6</td>
+                            <td class="table-death">0</td>
+                        </tr>
+
+                        <tr>	
+                            <td>Quảng Nam</td>
+                            <td class="table-stats">359</td>
+                            <td class="table-recovered">123</td>
+                            <td class="table-death">4</td>
+                        </tr>
+                        <tr>	
+                            <td>Quảng Ngãi</td>
+                            <td class="table-stats">421</td>
+                            <td class="table-recovered">8</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Kon Tum</td>
+                            <td class="table-stats">21</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Bình Định</td>
+                            <td class="table-stats">424</td>
+                            <td class="table-recovered">1</td>
+                            <td class="table-death">3</td>
+                        </tr>
+                        <tr>	
+                            <td>Gia Lai</td>
+                            <td class="table-stats">279</td>
+                            <td class="table-recovered">27</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Phú Yên</td>
+                            <td class="table-stats">1,964</td>
+                            <td class="table-recovered">28</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Dăk Lăk</td>
+                            <td class="table-stats">405</td>
+                            <td class="table-recovered">4</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        <tr>	
+                            <td>Khánh Hòa</td>
+                            <td class="table-stats">3,906</td>
+                            <td class="table-recovered">128</td>
+                            <td class="table-death">26</td>
+                        </tr>
+                        <tr>	
+                            <td>Dawk Nông</td>
+                            <td class="table-stats">165</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Lâm Đồng</td>
+                            <td class="table-stats">162</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Ninh Thuận</td>
+                            <td class="table-stats">558</td>
+                            <td class="table-recovered">12</td>
+                            <td class="table-death">3</td>
+                        </tr>
+                        <tr>	
+                            <td>Bình Thuận</td>
+                            <td class="table-stats">1,363</td>
+                            <td class="table-recovered">11</td>
+                            <td class="table-death">6</td>
+                        </tr>
+                        <tr>	
+                            <td>Bình Phước</td>
+                            <td class="table-stats">293</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Tây Ninh</td>
+                            <td class="table-stats">3,351</td>
+                            <td class="table-recovered">51</td>
+                            <td class="table-death">7</td>
+                        </tr>
+
+                        <tr>	
+                            <td>Bà Rịa - Vũng Tàu</td>
+                            <td class="table-stats">2,538 </td>
+                            <td class="table-recovered">127</td>
+                            <td class="table-death">21</td>
+                        </tr>
+                        <tr>	
+                            <td>Long An</td>
+                            <td class="table-stats">12,609</td>
+                            <td class="table-recovered">11</td>
+                            <td class="table-death">140</td>
+                        </tr>
+                        <tr>	
+                            <td>Đồng Tháp</td>
+                            <td class="table-stats">3.957</td>
+                            <td class="table-recovered">1</td>
+                            <td class="table-death">94</td>
+                        </tr>
+                        <tr>	
+                            <td>Tiền Giang</td>
+                            <td class="table-stats">3,675</td>
+                            <td class="table-recovered">5</td>
+                            <td class="table-death">122</td>
+                        </tr>
+                        <tr>	
+                            <td>Bến Tre</td>
+                            <td class="table-stats">1,242</td>
+                            <td class="table-recovered">18</td>
+                            <td class="table-death">22</td>
+                        </tr>
+                        <tr>	
+                            <td>An Giang</td>
+                            <td class="table-stats">691</td>
+                            <td class="table-recovered">9</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        <tr>	
+                            <td>Cần Thơ</td>
+                            <td class="table-stats">2,210</td>
+                            <td class="table-recovered">35</td>
+                            <td class="table-death">42</td>
+                        </tr>
+                        <tr>	
+                            <td>Vĩnh Long</td>
+                            <td class="table-stats">1,446</td>
+                            <td class="table-recovered">13</td>
+                            <td class="table-death">22</td>
+                        </tr>
+                        <tr>	
+                            <td>Trà Vinh</td>
+                            <td class="table-stats">664</td>
+                            <td class="table-recovered">8</td>
+                            <td class="table-death">4</td>
+                        </tr>
+                        <tr>	
+                            <td>Hậu Giang</td>
+                            <td class="table-stats">340</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">1</td>
+                        </tr>
+                        <tr>	
+                            <td>Sóc Trăng</td>
+                            <td class="table-stats">470</td>
+                            <td class="table-recovered">0</td>
+                            <td class="table-death">4</td>
+                        </tr>
+                        <tr>	
+                            <td>Kiên Giang</td>
+                            <td class="table-stats">523</td>
+                            <td class="table-recovered">27</td>
+                            <td class="table-death">3</td>
+                        </tr>
+                        <tr>	
+                            <td>Bạc Liêu</td>
+                            <td class="table-stats">122</td>
+                            <td class="table-recovered">53</td>
+                            <td class="table-death">0</td>
+                        </tr>
+                        <tr>	
+                            <td>Cà Mau</td>
+                            <td class="table-stats">56</td>
+                            <td class="table-recovered">8</td>
+                            <td class="table-death">1</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <table>
+                        <tr>
+                            <td><img width="22px" height="15px" src="./img/viettttttnam.png"><span>Toàn Quốc</span></td>
+                            <td>246,568</td>
+                            <td>4,813</td>
+                            <td>89,145</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="section-3" id="khuyencao">
+            <div class="s3-head">
+                    <div class="s2-title">KHUYẾN CÁO</div>
+            </div>
+            <div class="s3-dash"></div>
+            <div class="s3-container">
+                <div class="s3-content">
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">5 lưu ý quan trọng sau tiêm vaccine COVID-19</div>
+                        </div>
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">Nguy cơ tổn thương não ở trẻ em mắc COVID-19 trầm trọng</div>
+                        </div>
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">CẢNH GIÁC THUỐC Dễ ngộ độc khi lạm dụng paracetamol tự chữa COVID-19</div>
+                        </div>
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">10 điều lưu ý dành cho F1 khi cách ly y tế tại nhà</div>
+                        </div>
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">Nhiễm HIV làm tăng nguy cơ mắc COVID-19 nghiêm trọng: WHO cảnh báo</div>
+                        </div>
+                        <div class="list">
+                            <div class="s3-img"><img src="./img/logo_boyte.png" alt=""></div>
+                            <div class="list-content">Các loại thuốc có thể và không thể dùng cùng với vắc xin COVID-19</div>
+                        </div>
+                        <div class="navi-btn">
+                            <a class="previous" href="">Trước</a>
+                            <span>...</span>
+                            <a href="" class="next">Tiếp theo</a>
+                        </div>
+                </div>
+                <div class="s3-sidebar">
+                    <img src="./img/quitac5k.jpg">
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer id="hotro">
+        <div class="footer">
+            <div class="footer-contact">
+                <div class="f-contact-title">
+                    Contact
+                </div>
+                <div>
+                    <p>Đinh Văn Huy</p>
+                    <p>Mã sinh viên: 2050531200157</p>
+                    <p>Tel:(+84)0932548177</p>
+                    <p>E-mail: huydinhvan13@gmail.com</p><br>
+                    <p>Lê Đức Duy</p>
+                    <p>Mã sinh viên: 2050531200123</p>
+                    <p>Tel:(+84)0961640689</p>
+                    <p>E-mail: leducduydn.7122111@gmail.com</p>
+                </div>
+            </div>
+            <div class="f-sitemap">
+                <div class="f-contact-title">
+                    Sitemap
+                </div>
+                <div>
+                    <ul >
+                        <li ><a href="#" target="_blank">Trang chủ</a></li>
+                        <li><a href="#thongtin" target="_blank">Thông tin</a></li>
+                        <li><a href="#solieu" target="_blank">Số liệu</a></li>
+                        <li><a href="#khuyencao" target="_blank">Khuyến cáo</a></li>
+                        <li><a href="#hotro" target="_blank">Hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f-form">
+                <div class="f-contact-title">
+                    Contact us
+                </div>
+                <form action="">
+                    <input type="text" id="text-1" placeholder="Sender"><br>
+                    <input type="text" id="text-1" placeholder="Reason"><br>
+                    <input type="text" id="text-1" placeholder="Theme"><br>
+                    <textarea id="mess" placeholder="Your Message"></textarea><br>
+                    <input type="submit" id="button" onclick="alert('Bạn đã gữi thư cho chúng tôi')" value="Send Message">
+                    <div class="hover">Nhấn để phản hồi cho chúng tôi</div>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <div class="b-mess" onclick="messtome()">
+        <i class="fa fa-commenting" aria-hidden="true"></i>
+    </div>
+    <div class="mess-box">
+        <div class="top-mess-box">
+            <img src="img/logocovid.png" >
+            <span>Chat BOT</span>
+        </div>
+        <div class="center-mess-box">
+            <div class="avatar-chat">
+                <img src="img/logocovid.png">
+                <div class="chatmess">
+                    <div>Xin chào !</div>
+                    <div>Tôi có thể giúp gì cho bạn?</div>
+                </div>
+            </div>
+        </div>
+        <div class="bot-mess-box">
+            <input type="text" placeholder="Viết tin nhắn...">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </div>
+    </div>
+    <script>$('.mess-box').hide();</script>
+    <div class="button-back-to-top">
+        <p class="button-totop" onclick="backtotop()" >&#8593;</p>
+        <script>$('.button-totop').hide();</script>
+    </div>
+</body>
+</html>
